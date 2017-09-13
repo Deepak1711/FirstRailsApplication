@@ -13,7 +13,14 @@ class ArticlesController < ApplicationController
 		end
 	end
     def show()
-    	@article=Article.find(params[:id])
+    	@item=[]
+    	@item[0]=Article.find(params[:id])
+    	comments=@item[0].comments
+    	i=1
+    	comments.each do |comment|
+    		@item[1]=comment
+    		i=i.next
+    	end
     end
 
 	private 
